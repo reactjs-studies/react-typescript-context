@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
 import UpdateCountValue from "./components/UpdateCounter";
-import { UpdateCounbterContext } from "./context";
+import { UpdateCounterContext } from "./context";
 
-import type { Props } from "./appTypes";
+import type { Props, MouseEventFn } from "./appTypes";
 
-type SetCountfn = (x: number) => void;
-
-function increaseCount({ count, setCount }: Props): SetCountfn {
-  return () => {
+function increaseCount({ count, setCount }: Props): MouseEventFn {
+  return (e) => {
+    e.preventDefault();
     setCount(count + 1);
   };
 }
 
-function decreaseCount({ count, setCount }: Props): SetCountfn {
-  return () => {
+function decreaseCount({ count, setCount }: Props): MouseEventFn {
+  return (e) => {
+    e.preventDefault();
     if (count > 0) {
       setCount(count - 1);
     } else {
@@ -35,14 +35,14 @@ function App(): JSX.Element {
     <div className="App">
       <h2>{count}</h2>
 
-      <UpdateCounbterContext.Provider
+      <UpdateCounterContext.Provider
         value={{
           increaseFn: increaseCount(props),
           decreaseFn: decreaseCount(props),
         }}
       >
         <UpdateCountValue />
-      </UpdateCounbterContext.Provider>
+      </UpdateCounterContext.Provider>
     </div>
   );
 }

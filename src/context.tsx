@@ -1,9 +1,9 @@
 import React from "react";
 import { UpdateCounter } from "./appTypes";
 
-const UpdateCounbterContext = React.createContext<UpdateCounter>({
-  increaseFn: (x) => x,
-  decreaseFn: (x) => x,
+const UpdateCounterContext = React.createContext<UpdateCounter>({
+  increaseFn: () => {},
+  decreaseFn: () => {},
 });
 
-export { UpdateCounbterContext };
+export { UpdateCounterContext };

@@ -1,9 +1,13 @@
+import { MouseEvent } from "react";
+
 export type Props = {
   count: number;
-  setCount: (n: number) => void;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
+export type MouseEventFn = (e: MouseEvent) => void;
+
 export type UpdateCounter = {
-  increaseFn: (n: number, f: (n: number) => void) => void;
-  decreaseFn: (n: number, f: (n: number) => void) => void;
+  increaseFn: MouseEventFn;
+  decreaseFn: MouseEventFn;
 };
