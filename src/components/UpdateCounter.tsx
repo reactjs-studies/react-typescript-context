@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { UpdateCounterContext } from "../context";
 import type { Props } from "../appTypes";
 
-// given an integer and a Funtion  to set the interger
-// should return  the jsx buttons to update the  state for interger
 function UpdateCountValue(): JSX.Element {
   const { count, setCount } = useContext<Props>(UpdateCounterContext);
 
